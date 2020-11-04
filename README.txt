@@ -1,1 +1,1 @@
-#Exercices javaScript
+GitHub formation.
