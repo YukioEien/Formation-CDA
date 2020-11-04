@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Bienvenue sur le site JARDITOU</title>
+    <link rel="stylesheet" href="styles.css"></head>
+
+
+                    <!--DEBUT BODY / HEADER-->
+    <body><header>
+        <p class="slogan">Tout le jardin</p>
+    <img class="logo" src="jarditou_css/src/img/jarditou_logo.jpg" alt="Logo Jarditou">
+        <nav class="navigation"><a href="index.html"> Accueil</a>
+            <a href="tableau.html"> Tableau</a>
+            <a href="#">Contact</a></nav>
+                <div class="mobile"><ul><li><a href="index.html"> Accueil</a></li>
+                    <li><a href="tableau.html"> Tableau</a></li>
+                    <li><a href="#">Contact</a></li></ul></div> 
+        <img class="promo" src="jarditou_css/src/img/promotion.jpg" alt="Promotion sur lames de terasse"></header>
+
+
+
+
+                    <!--FIN HEADER-->
+        <p class="box">[Colonne droite]</p>
+        <h1>Contact</h1>
+        <hr>
+        <p>* Ces zones sont obligatoires <br></p>
+        <form action="http://bienvu.net/script.php" method="POST">
+            <fieldset> <legend>Vos coordonnées</legend>
+        Votre nom* : <input type="text" name="Nom" maxlength="25" placeholder="Inscrivez ici votre nom" pattern="^[a-z]+$" required title="Inscrivez votre nom (caractères entre A et Z)">
+        <br>
+        Votre prénom*: <input type="text" name="Prénom" maxlength="25" placeholder="Inscrivez ici votre prénom" pattern="^[a-z]+$" required title="Inscrivez votre prénom (caractères entre A et Z)">
+        <br> <br>
+        Sexe* :<input type="radio" name="Sexe" value="Féminin" required title="Selectionnez l'une des deux options" >Féminin
+              <input type="radio" name="Sexe" value="Masculin">Masculin <br>
+               <br> Date de naissance*: <input type="date" name="Date" min="1901-01-01" max="2020-01-01" required title="Inscrivez votre date de naissance">
+               <br> Code postal* : <input type="text" name ="Code postal" pattern="[0-9]{5}" required title="Inscrivez votre code postal"  >
+               <br> Adresse : <input type="text" name="Adresse">
+               <br> Ville : <input type="text" name="Ville" pattern="^[a-z]+$">
+               <br> Email* : <input type="text" name="Email" required title="Veuillez inscrire une adresse mail valide." placeholder="dave.loper@afpa.fr">
+            </fieldset>
+    
+              <fieldset> <legend> Votre demande </legend>
+               Sujet* : <select name="Sujet" required title="Selectionnez un sujet valide" id="Sujet">
+                   <option value="" selected disabled>Veuillez séléctionner un sujet</option>
+                   <option value="Mes commandes">Mes commandes</option>
+                   <option value="Question sur un produit">Question sur un produit</option>
+                   <option value="Réclamation">Réclamation</option>
+                   <option value="Autres">Autres</option>
+               </select>
+              <br> Votre question* :<textarea name="Question" maxlength="1000" required title="Veuillez formuler votre demande"></textarea>
+            </fieldset>
+            <br> <input type="checkbox" name="Formulaire" required title="Veuillez d'accepter les conditions d'utilisations">* J'accepte le traitement informatique de ce formulaire
+            <br> <br> <input type="submit" value="Envoyer"> <input type="reset" value="Annuler">
+    </form>
+    <hr><br>
+
+
+                <!--DEBUT FOOTER-->
+    <footer>
+        <div class="navigation"><a href="#">Mention légales</a>
+           <a href="#">Horaires</a>
+           <a href="#">Plan du site</a></div>
+       </footer>
+
+                <!--FIN FOOTER-->
+
+
+
+       <div class="mobile"><ul><li><a href="#">Mention légales</a></li>
+        <li><a href="#">Horaires</a></li>
+        <li><a href="#">Plan du site</a></li></ul></div>
+    </body>
+
+                <!--FIN BODY-->
+
+</html>
