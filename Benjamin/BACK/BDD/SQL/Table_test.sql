@@ -4,7 +4,7 @@ USE Table_test;
 
 CREATE TABLE `station` (
 	`sta_num` varchar(50) NOT NULL,
-	`sta_nom` TINYTEXT NOT NULL,
+	`sta_nom` varchar(50) NOT NULL,
 	KEY `Index 1` (`sta_num`)
 )
 COLLATE='latin1_swedish_ci'
@@ -56,7 +56,7 @@ CREATE TABLE `reservation` (
 	`res_dateRes` DATE NOT NULL,
 	`res_montantArrhes` FLOAT NOT NULL DEFAULT '0',
 	`res_prixTotal` FLOAT NOT NULL DEFAULT '0',
-	KEY `num_chambre` (`res_numChambre`),
+	KEY `Index 1` (`res_numChambre`),
   	KEY `Index 2` (`res_numClient`),
   	CONSTRAINT `FK_reservation_client` FOREIGN KEY (`res_numClient`) REFERENCES `client` (`cli_num`),
   	CONSTRAINT `chambre_reservation` FOREIGN KEY (`res_numChambre`) REFERENCES `chambre` (`cha_num`)
