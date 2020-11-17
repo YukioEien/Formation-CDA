@@ -65,5 +65,8 @@ CREATE TABLE `reservation` (
 COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB
 ;
+GRANT ALL PRIVILEGES ON Table_test.* TO 'util1'@'%';
 
+GRANT SELECT on Table_test.* to 'util2'@'%';
 
+GRANT SELECT on station to 'util3'@'%';
