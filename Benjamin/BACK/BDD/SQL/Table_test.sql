@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS Table_test;
-CREATE DATABASE Table_test;
-USE Table_test;
+DROP DATABASE IF EXISTS hotel;
+CREATE DATABASE hotel;
+USE hotel;
 
 CREATE TABLE `station` (
 	`sta_num` varchar(50) NOT NULL,
@@ -65,11 +65,12 @@ CREATE TABLE `reservation` (
 COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB
 ;
+
 CREATE USER 'util1'@'%' IDENTIFIED BY '123';
-GRANT ALL PRIVILEGES ON *.* TO 'util1'@'%';
+GRANT ALL PRIVILEGES ON hotel.* TO 'util1'@'%';
 
 CREATE USER 'util2'@'%' IDENTIFIED BY '123';
-GRANT SELECT ON table_test.* to 'util2'@'%';
+GRANT SELECT ON hotel.* to 'util2'@'%';
 
 CREATE USER 'util3'@'%' IDENTIFIED BY '123';
-GRANT SELECT ON table_test.station to 'util3'@'%';
+GRANT SHOW VIEW ON hotel.station to 'util3'@'%';
