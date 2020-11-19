@@ -65,8 +65,11 @@ CREATE TABLE `reservation` (
 COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB
 ;
-GRANT ALL PRIVILEGES ON Table_test.* TO 'util1'@'%';
+CREATE USER 'util1'@'localhost' IDENTIFIED BY '123';
+GRANT ALL PRIVILEGES ON *.* TO 'util1'@'localhost';
 
-GRANT SELECT on Table_test.* to 'util2'@'%';
+CREATE USER 'util2'@'localhost' IDENTIFIED BY '123';
+GRANT SELECT ON table_test.* to 'util2'@'localhost';
 
-GRANT SELECT on station to 'util3'@'%';
+CREATE USER 'util3'@'localhost' IDENTIFIED BY '123';
+GRANT SELECT ON table_test.station to 'util3'@'localhost';
