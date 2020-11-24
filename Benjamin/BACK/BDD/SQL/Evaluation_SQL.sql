@@ -7,7 +7,7 @@ CREATE TABLE `Client` (
     `cli_nom` VARCHAR(50) NOT NULL,
     `cli_adresse` VARCHAR(50) NOT NULL,
     `cli_tel` VARCHAR(30) NOT NULL,
-    KEY `FK3`(`cli_num`),
+    KEY (`cli_num`),
     INDEX (`cli_nom`)
 )
 COLLATE='latin1_swedish_ci'
