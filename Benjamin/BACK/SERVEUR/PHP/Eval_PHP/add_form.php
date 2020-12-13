@@ -1,174 +1,55 @@
 <?php
-// On démarre une session
-session_start();
 
-//if($_POST){
-//    if(isset($_POST['pro_ref']) && !empty($_POST['pro_ref'])
-//    && isset($_POST['pro_id']) && !empty($_POST['pro_id'])
-//    && isset($_POST['pro_cat_id']) && !empty($_POST['pro_cat_id'])
-//    && isset($_POST['pro_libelle']) && !empty($_POST['pro_libelle'])
-//    && isset($_POST['pro_description']) && !empty($_POST['pro_description'])
-//    && isset($_POST['pro_prix']) && !empty($_POST['pro_prix'])
-//    && isset($_POST['pro_stock']) && !empty($_POST['pro_stock'])
-//    && isset($_POST['pro_couleur']) && !empty($_POST['pro_couleur'])
-//    && isset($_POST['pro_bloque']) && !empty($_POST['pro_bloque'])
-//    && isset($_POST['pro_d_ajout']) && !empty($_POST['pro_d_ajout'])){
-//        // On inclut la connexion à la base
-//       
-//           require_once('connect.php');
-//                    
-//        // On nettoie les données envoyées
-//        $pro_ref = strip_tags($_POST['pro_ref']);
-//        $pro_id = strip_tags($_POST['pro_id']);
-//        $pro_cat_id = strip_tags($_POST['pro_cat_id']);
-//        $pro_libelle = strip_tags($_POST['pro_libelle']);
-//        $pro_description = strip_tags($_POST['pro_description']);
-//        $pro_prix = strip_tags($_POST['pro_prix']);
-//        $pro_stock = strip_tags($_POST['pro_stock']);
-//        $pro_couleur = strip_tags($_POST['pro_couleur']);
-//        $pro_bloque = strip_tags($_POST['pro_bloque']);
-//        $pro_d_ajout = strip_tags($_POST['pro_d_ajout']);
-//        $pro_d_modif = strip_tags($_POST['pro_d_modif']);
-//       $stmt = $db->prepare('INSERT INTO produits (pro_ref, pro_cat_id, pro_libelle, pro_description, pro_prix, pro_stock, pro_couleur, pro_bloque, pro_d_ajout, pro_d_modif) 
-//         VALUES(:pro_ref, :pro_cat_id, :pro_libelle :pro_description, :pro_prix, :pro_stock, :pro_couleur, :pro_bloque, :pro_d_ajout, :pro_d_modif)');           
-//        //$stmt = $db->prepare("INSERT INTO produits VALUES pro_ref =:pro_ref, pro_description=:pro_description, pro_prix=:pro_prix,pro_stock=:pro_stock,pro_couleur=:pro_couleur,pro_bloque=:pro_bloque,pro_d_ajout=:pro_d_ajout,pro_d_modif=:pro_d_modif");
-//        //$sql = 'UPDATE `produits` SET (`pro_ref`=:pro_ref, `pro_id`=:pro_id, `pro_description`=:pro_description,`pro_prix`=:pro_prix,`pro_stock`=:pro_stock,
-//        //`pro_couleur`=:pro_couleur,`pro_bloque`=:pro_bloque,`pro_d_ajout`=:pro_d_ajout,`pro_d_modif`=:pro_d_modif) WHERE `pro_id`=:id;';
-//            //$sql = 'UPDATE produits SET pro_ref ="test" WHERE pro_id=:pro_id;';
-//        
-//        $stmt->$arrayValues = array($pro_id,$pro_ref,$pro_libelle,$pro_description,$pro_prix,$pro_stock,$pro_couleur,$pro_bloque,date("m-d-y"),date("m-d-y"));
-//            
-//              
-//        $arrayValues = array(
-//            'pro_id' => $pro_id,
-//            'pro_ref' => $pro_ref,
-//            'pro_description' => $pro_description,
-//            'pro_prix' => $pro_prix,
-//            'pro_stock' => $pro_stock,
-//            'pro_couleur' => $pro_couleur,
-//            'pro_bloque' => $pro_bloque,
-//            'pro_d_ajout' => $produit['pro_d_ajout'],
-//            'pro_d_modif' => date("y-m-d h-i-s")
-//              );
-//
-//        $stmt->bindValue(':pro_ref', $pro_ref, PDO::PARAM_STR);
-//        $stmt->bindValue(':pro_description', $pro_description, PDO::PARAM_STR);
-//        $stmt->bindValue(':pro_prix', $pro_prix, PDO::PARAM_INT);
-//        $stmt->bindValue(':pro_stock', $pro_stock, PDO::PARAM_INT);
-//        $stmt->bindValue(':pro_couleur', $pro_couleur, PDO::PARAM_STR);
-//        $stmt->bindValue(':pro_bloque', $pro_bloque, PDO::PARAM_INT);
-//        $stmt->bindValue(':pro_d_ajout', $pro_d_ajout, PDO::PARAM_STR);
-//        $stmt->bindValue(':pro_d_modif', $pro_d_modif, PDO::PARAM_STR);
-//
-//        $stmt-> execute($arrayValues);
-//        //$query->execute();
-//
-//       //$_SESSION['message'] = 'Produit modifié';
-//       //require_once('close.php');
-//
-//      //  header('Location: index.php');
-//    
-//    //else{
-////        $_SESSION['erreur'] = 'Le formulaire est incomplet';
-//   }
-//}
-
-if (isset($_GET['pro_id']) && !empty($_GET['pro_id']))
-                    {
-                    require_once('connect.php');
-
-                    $pro_id = strip_tags($_GET['pro_id']);
-
-                    $sql = 'SELECT * FROM `produits` WHERE `pro_id` = :id;';
-
-                    $query = $db->prepare($sql);
-
-                    $query->bindvalue(':id', $pro_id, PDO::PARAM_INT);
-
-                    $query->execute();
-
-                    $produit = $query->fetch();
-
-                    if (!$produit)
-                            {
-                                $_SESSION['erreur'] = 'Cet ID n\'existe pas';
-                                header('Location: index.php');
-                            }
-                        }
 
 if($_POST){
-    if(isset($_POST['pro_ref']) && !empty($_POST['pro_ref'])
-    && isset($_POST['pro_id']) && !empty($_POST['pro_id'])
-    && isset($_POST['pro_cat_id']) && !empty($_POST['pro_cat_id'])
-    && isset($_POST['pro_description']) && !empty($_POST['pro_description'])
-    && isset($_POST['pro_prix']) && !empty($_POST['pro_prix'])
-    && isset($_POST['pro_stock']) && !empty($_POST['pro_stock'])
-    && isset($_POST['pro_couleur']) && !empty($_POST['pro_couleur'])
-    && isset($_POST['pro_bloque']) && !empty($_POST['pro_bloque'])
-    && isset($_POST['pro_d_ajout']) && !empty($_POST['pro_d_ajout'])
-    && isset($_POST['pro_d_modif']) && !empty($_POST['pro_d_modif'])
-    ){
-        require "database.php";
-        // On inclut la connexion à la base
-       
-        
-
-    // Connexion à la base
-
-
-                $db = new PDO('mysql:host=localhost;dbname=jarditou', 'root', '');
-                $db->exec('SET NAMES "UTF8"');
-                
+            
                     
         // On nettoie les données envoyées
-        $pro_ref = strip_tags($_POST['pro_ref']);
-        $pro_id = strip_tags($_POST['pro_id']);
-        $pro_cat_id = strip_tags($_POST['pro_cat_id']);
-        $pro_libelle = strip_tags($_POST['pro_libelle']);
-        $pro_description = strip_tags($_POST['pro_description']);
-        $pro_prix = strip_tags($_POST['pro_prix']);
-        $pro_stock = strip_tags($_POST['pro_stock']);
-        $pro_couleur = strip_tags($_POST['pro_couleur']);
-        $pro_bloque = strip_tags($_POST['pro_bloque']);
-        $pro_d_ajout = date("y-m-d H:i:s");
-        $pro_d_modif = strip_tags($_POST['pro_d_modif']);
-       
-       
+        $pro_ref = $_POST['pro_ref'];
+        //$pro_id = $_POST['pro_id'];
+        $pro_libelle = $_POST['pro_libelle'];
+        $pro_cat_id = $_POST['pro_cat_id'];
+        $pro_description = $_POST['pro_description'];
+        $pro_prix = $_POST['pro_prix'];
+        $pro_stock = $_POST['pro_stock'];
+        $pro_couleur = $_POST['pro_couleur'];
+        $pro_bloque = $_POST['pro_bloque'];
+        //$pro_d_ajout = $_POST['pro_d_ajout'];
+        //$pro_d_modif = $_POST['pro_d_modif'];
+            
+        require_once('connect.php');
+    // Connexion à la base
 
-        
+    try{ 
+                $db = new PDO('mysql:host=localhost;charset=utf8;dbname=nbenj', 'nbenj', 'nb20114');
+                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } 
+            catch (Exception $e) {
+                echo "Erreur : " . $e->getMessage() . "<br>";
+                echo "N° : " . $e->getCode();
+                die("Fin du script");
+            }  
+            
+            $stmt = $db->prepare("INSERT INTO produits (pro_ref,pro_cat_id,pro_libelle,pro_description,pro_prix,pro_stock,pro_couleur,pro_bloque/*, pro_d_ajout*/) 
+                                VALUES (:pro_ref,:pro_cat_id,:pro_libelle:pro_description,:pro_prix,:pro_stock,:pro_couleur,:pro_bloque/*, :pro_d_ajout)*/");       
 
         $stmt->bindValue(':pro_ref', $pro_ref, PDO::PARAM_STR);
         $stmt->bindValue(':pro_libelle', $pro_libelle, PDO::PARAM_STR);
-        $stmt->bindValue(':pro_ref', $pro_ref, PDO::PARAM_STR);
-        $stmt->bindValue(':pro_id', $pro_id, PDO::PARAM_STR);
+        $stmt->bindValue(':pro_cat_id', $pro_cat_id, PDO::PARAM_STR);
+        //$stmt->bindValue(':pro_id', $pro_id, PDO::PARAM_STR);
         $stmt->bindValue(':pro_description', $pro_description, PDO::PARAM_STR);
-        $stmt->bindValue(':pro_prix', $pro_prix, PDO::PARAM_INT);
+        $stmt->bindValue(':pro_prix', $pro_prix, PDO::PARAM_STR);
         $stmt->bindValue(':pro_stock', $pro_stock, PDO::PARAM_INT);
         $stmt->bindValue(':pro_couleur', $pro_couleur, PDO::PARAM_STR);
         $stmt->bindValue(':pro_bloque', $pro_bloque, PDO::PARAM_INT);
-        $stmt->bindValue(':pro_d_ajout', $pro_d_ajout, PDO::PARAM_STR);
-        $stmt->bindValue(':pro_d_modif', $pro_d_modif, PDO::PARAM_STR);
+        //$stmt->bindValue(':pro_d_ajout', $pro_d_ajout, PDO::PARAM_STR);
+        //$stmt->bindValue(':pro_d_modif', $pro_d_modif, PDO::PARAM_STR);
 
-        $stmt = $db->prepare('INSERT INTO produits (pro_ref, pro_cat_id, pro_libelle, pro_description, pro_prix, pro_stock, pro_couleur, pro_bloque, pro_d_ajout, pro_d_modif) 
-                                VALUES(:pro_ref, :pro_cat_id, :pro_libelle :pro_description, :pro_prix, :pro_stock, :pro_couleur, :pro_bloque, :pro_d_ajout, :pro_d_modif)');
-        //$arrayValues = array(
-        //    'pro_id' => $pro_id,
-        //    'pro_ref' => $pro_ref,
-        //    'pro_description' => $pro_description,
-        //    'pro_prix' => $pro_prix,
-        //    'pro_stock' => $pro_stock,
-        //    'pro_couleur' => $pro_couleur,
-        //    'pro_bloque' => $pro_bloque,
-        //    'pro_d_ajout' => $produit['pro_d_ajout'],
-        //    'pro_d_modif' => date("y-m-d h-i-s")
-        //      );
-//
         $stmt-> execute();
         $stmt-> closeCursor();
+        header("Location: index.php");
            
-
-       }
-    }
+        }
 ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -287,7 +168,7 @@ if($_POST){
                         </div>
                         <div class="form-group">
                             <label for="pro_d_ajout">Date d'ajout</label>
-                                <input type="text" name="pro_d_ajout" id="pro_d_ajout" value="<?php $today = date("y-m-d H:i:s");echo $today;?>"class="form-control" disabled>     
+                                <input type="text" name="pro_d_ajout" id="pro_d_ajout" value="<?php $today = date("y-m-d");echo $today;?>"class="form-control" disabled>     
                         </div>
                         <div class="form-group">
                             <label for="pro_d_modif">Date de modification</label>
@@ -295,7 +176,6 @@ if($_POST){
                         </div>
                          <a class="btn btn-secondary" href="index.php">Retour</a><button type="submit" value="submit" class="btn btn-success">Envoyer</button>
                                </form> 
-                            <?php var_dump($arrayValues) ?>
                                </div>
                               
                               
