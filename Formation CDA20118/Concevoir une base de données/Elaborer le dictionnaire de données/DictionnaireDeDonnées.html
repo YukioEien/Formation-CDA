@@ -6,6 +6,7 @@
     <title>Dictionnaire de données</title>
 </head>
 <body>
+    <H2>Exercice 1</H2>
     <table>
 <thead>
     <td>Code</td>
@@ -74,10 +75,85 @@
         <td>Code postal de la ville</td>
         <td>Char(50)</td>
     </tr>
-    
-
-    
 </tbody>
 </table>
+
+<H2>Exercice 2</H2>
+
+<table>
+    <thead>
+        <td>Code</td>
+        <td>Libellé</td>
+        <td>type</td>
+        
+    </thead>
+    <tbody>
+        <tr>
+            <td>sta_id</td>
+            <td>Numéro d'inscription du stagiaire</td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>sta_nom</td>
+            <td>Nom du stagiaire</td>
+            <td>char(50)</td>
+        </tr>
+        <tr>
+            <td>sta_prenom</td>
+            <td>Prenom du stagiaire</td>
+            <td>char(50)</td>
+        </tr>
+        <tr>
+            <td>sta_datedenaissance</td>
+            <td>Date de naissance du stagiaire</td>
+            <td>date d-m-y</td>
+        </tr>
+        <tr>
+            <td>sta_sexe</td>
+            <td>sexe du stagiaire</td>
+            <td>char(1)</td>
+        </tr>
+        <tr>
+            <td>sta_adresse</td>
+            <td>Adresse du stagiaire</td>
+            <td>char(50)</td>
+        </tr>
+        <tr>
+            <td>nform_id</td>
+            <td>Numéro national formation</td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>form_nom</td>
+            <td>Intitulé de la formation</td>
+            <td>char(50)</td>
+        </tr>
+        <tr>
+            <td>form_titre</td>
+            <td>Titre ou non ?</td>
+            <td>boolean</td>
+        </tr>
+        <tr>
+            <td>form_nom_titre</td>
+            <td>Intitulé du titre de la formation</td>
+            <td>char(50)</td>
+        </tr>
+        <tr>
+            <td>form_duree</td>
+            <td>Durée de la formation</td>
+            <td>int(1)</td>
+        </tr>
+        <tr>
+            <td>form_debut_date</td>
+            <td>Date du debut de la formation</td>
+            <td>date format d-m-y</td>
+        </tr>
+        <tr>
+            <td>form_fin_date</td>
+            <td>Date de fin de la formation</td>
+            <td>form_duree+form_debut_date(d)</td>
+        </tr>
+    </tbody>
+    </table>
 </body>
 </html>
