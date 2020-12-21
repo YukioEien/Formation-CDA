@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Evaluation Partie 1 Dictionnaire de données</title>
+</head>
+<body>
+    
+    <H2></H2>
+    <table>
+<thead>
+    <td>Code</td>
+    <td>Libellé</td>
+    <td>Type</td>
+    
+</thead>
+<tbody>
+    <tr>
+        <td>abo_id</td>
+        <td>Numéro d'abonné</td>
+        <td>int</td>
+    </tr>
+    <tr>
+        <td>abo_nom</td>
+        <td>Nom de l'abonné</td>
+        <td>char(30)</td>
+    </tr>
+    <tr>
+        <td>abo_prenom</td>
+        <td>Prénom de l'abonné</td>
+        <td>char(30)</td>
+    </tr>
+    <tr>
+        <td>abo_adresse</td>
+        <td>Adresse de l'abonné</td>
+        <td>char(50)</td>
+    </tr>
+    <tr>
+        <td>abo_tel</td>
+        <td>Numéro de telephone de l'abonné</td>
+        <td>int(10)</td>
+    </tr>
+    <tr>
+        <td>abo_date_d_emprunt</td>
+        <td>Date de l'emprunt de l'abonné</td>
+        <td>Date(CLE ETRANGERE)</td>
+    </tr>
+    <tr>
+        <td>abo_date_relance</td>
+        <td>Date de relance de l'abonné</td>
+        <td>Date(CLE ETRANGERE)</td>
+    </tr>
+    <tr>
+        <td>abo_nb_de_relance</td>
+        <td>Nombre de relance de l'abonné</td>
+        <td>int(1 à 3)</td>
+    </tr>
+    <tr>
+        <td>abo_emprunt_possible</td>
+        <td>L'abonné peut-il emprunter ?</td>
+        <td>boolean</td>
+    </tr>
+    <tr>
+        <td>livre_titre</td>
+        <td>Titre du livre</td>
+        <td>char(100)</td>
+    </tr>
+    <tr>
+        <td>livre_auteur</td>
+        <td>Nom de l'auteur du livre</td>
+        <td>char(60)</td>
+    </tr>
+    <tr>
+        <td>livre_editeur</td>
+        <td>Nom de l'éditeur du livre</td>
+        <td>char(50)</td>
+    </tr>
+    <tr>
+        <td>livre_id</td>
+        <td>Numéro du livre</td>
+        <td>int(AUTO_INCREMENT)</td>
+    </tr>
+    <tr>
+        <td>livre_theme</td>
+        <td>Thème du livre</td>
+        <td>char(30)</td>
+    </tr>
+    <tr>
+        <td>livre_a_ranger</td>
+        <td>Faut-il ranger le livre?</td>
+        <td>boolean</td>
+    </tr>
+    <tr>
+        <td>etiquette_id</td>
+        <td>Numéro du livre sur l'étiquette</td>
+        <td>int</td>
+    </tr>
+    <tr>
+        <td>etiquette_couleur</td>
+        <td>Couleur de la pastille</td>
+        <td>char(8)</td>
+    </tr>
+    <tr>
+        <td>emprunt_livre_id</td>
+        <td>Numéro du livre emprunté</td>
+        <td>int(CLE ETRANGERE)</td>
+    </tr>
+    <tr>
+        <td>emprunt_abo_id</td>
+        <td>Numéro de l'abonné empruntant le livre</td>
+        <td>int(CLE ETRANGERE)</td>
+    </tr>
+    <tr>
+        <td>emprunt_status</td>
+        <td>Livre emprunté ? (VRAI/FAUX)</td>
+        <td>boolean</td>
+    </tr>
+    <tr>
+        <td>emprunt_date_pret</td>
+        <td>Date d'emprunt du livre</td>
+        <td>Date</td>
+    </tr>
+    <tr>
+        <td>emprunt_date_retour</td>
+        <td>Date de retour de l'emprunt du livre</td>
+        <td>Date</td>
+    </tr>
+    <tr>
+        <td>casier_fiche_abo_id</td>
+        <td>Numéro fiche client</td>
+        <td>int</td>
+    </tr>
+    <tr>
+        <td>casier_emprunt_date</td>
+        <td>Date d'emprunt du livre</td>
+        <td>Date</td>
+    </tr>
+    <tr>
+        <td>casier_emprunt_date_relance</td>
+        <td>Date de relance d'un emprunt</td>
+        <td>Date</td>
+    </tr>
+    <tr>
+        <td>fiche_emprunt_date_relance</td>
+        <td>Date de relance sur la fiche</td>
+        <td>Date(CLE ETRANGERE)</td>
+    </tr>
+    <tr>
+        <td>livre_empruntable</td>
+        <td>Livre dans un état convenable ? Non perdu ?</td>
+        <td>boolean</td>
+    </tr>
+</tbody>
+</table>
+
+
+</body>
+</html>
