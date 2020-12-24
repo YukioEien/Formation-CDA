@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <td>Code</td>
+            <td>Libellé</td>
+            <td>type</td>
+            
+        </thead>
+        <tbody>
+            <tr>
+                <td>pro_id</td>
+                <td>numeroDuProduit</td>
+                <td>int auto_increment</td>
+            </tr>
+            <tr>
+                <td>pro_prix</td>
+                <td>prixDuProduit</td>
+                <td>decimal(2,2)</td>
+            </tr>
+            <tr>
+                <td>pro_rubrique_id</td>
+                <td>numRubriqueDuProduit</td>
+                <td>int</td>
+            </tr>
+            <tr>
+                <td>pro_sous_rubrique_id</td>
+                <td>numSousRubriqueDuProduit</td>
+                <td>int</td>
+            </tr>
+            <tr>
+                <td>pro_desc</td>
+                <td>descriptionDuProduit</td>
+                <td>char(200)</td>
+            </tr>
+            <tr>
+                <td>pro_mini_desc</td>
+                <td>miniDescriptionDuProduit</td>
+                <td>char(20)</td>
+            </tr>
+            <tr>
+                <td>pro_photo</td>
+                <td>photoDuProduit</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>pro_stock</td>
+                <td>stockDuProduit</td>
+                <td>int</td>
+            </tr>
+            <tr>
+                <td>pro_valide</td>
+                <td>disponibiliteDuProduit</td>
+                <td>boolean</td>
+            </tr>
+            <tr>
+                <td>cons_pro_id</td>
+                <td>numProduitDuConstructeur</td>
+                <td>int</td>
+            </tr>
+            <tr>
+                <td>cons_nom</td>
+                <td>nomProduitDuConstructeur</td>
+                <td>char</td>
+            </tr>
+            <tr>
+                <td>cons_adresse</td>
+                <td>adresseDuConstructeur</td>
+                <td>char</td>
+            </tr>
+            <tr>
+                <td>impo_pro_id</td>
+                <td>numDuProduitDeLimportateur</td>
+                <td>int</td>
+            </tr>
+            <tr>
+                <td>impo_nom</td>
+                <td>nomDeLimportateur</td>
+                <td>char</td>
+            </tr>
+            <tr>
+                <td>impo_adresse</td>
+                <td>adresseDeLimportateur</td>
+                <td>char</td>
+            </tr>
+            <tr>
+                <td>rub_nom</td>
+                <td>nomDeLaRubrique</td>
+                <td>char</td>
+            </tr>
+            <tr>
+                <td>rub_id</td>
+                <td>numDeLaRubrique</td>
+                <td>int</td>
+            </tr>
+            <tr>
+                <td>sous_nom</td>
+                <td>nomDeLaSousRubrique</td>
+                <td>char</td>
+            </tr>
+            <tr>
+                <td>sous_id</td>
+                <td>numDeLaSousRubrique</td>
+                <td>int</td>
+            </tr>
+            <tr>
+                <td>cli_pro</td>
+                <td>clientPro</td>
+                <td>boolean</td>
+            </tr>
+            <tr>
+                <td>cli_nom</td>
+                <td>nomDuClient</td>
+                <td>char</td>
+            </tr>
+            <tr>
+                <td>cli_prenom</td>
+                <td>prenomDuClient</td>
+                <td>char</td>
+            </tr>
+            <tr>
+                <td>cli_tel</td>
+                <td>numeroDeTelephoneDuClient</td>
+                <td>char</td>
+            </tr>
+            <tr>
+                <td>cli_adresse</td>
+                <td>adresseDuClient</td>
+                <td>char</td>
+            </tr>
+            <tr>
+                <td>cli_pays</td>
+                <td>paysDuClient</td>
+                <td>char</td>
+            </tr>   
+            <tr>
+                <td>cli_ref</td>
+                <td>referenceDuClient</td>
+                <td>char</td>
+            </tr>
+            <tr>
+                <td>com_adresse_livraison</td>
+                <td>adresseDeLivraisonDeLaCommande</td>
+                <td>char</td>
+            </tr>
+            <tr>
+                <td>com_adresse_facturation</td>
+                <td>adresseDeFacturationDeLaCommande</td>
+                <td>char</td>
+            </tr>
+            <tr>
+                <td>com_plus_de_3ans</td>
+                <td>commandeDePlusDeTroisAns</td>
+                <td>boolean</td>
+            </tr>
+            <tr>
+                <td>tot_prix</td>
+                <td>prixTotal</td>
+                <td>decimal(2,2)</td>
+            </tr>
+            <tr>
+                <td>tot_reduc</td>
+                <td>reductionTotal</td>
+                <td>decimal(2,2)</td>
+            </tr>
+            <tr>
+                <td>tot_paiement_differe</td>
+                <td>paiementDiffere</td>
+                <td>boolean</td>
+            </tr>
+            <tr>
+                <td>tot_coef</td>
+                <td>coefficientDuTotal</td>
+                <td>decimal(2,2)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            
+        </tbody>
+        </table>
+
+
+cons = constructeurs
+impo = importateurs
+pro = produits
+cli = clients
+tot = total
+com = commande
+rub = rubrique
+sous = sous-rubrique
+
+produits référencés chez constructeurs et importateurs
+
+cons_pro_id (int),cons_nom (char),cons_adresse(char),impo_pro_id(int),impo_nom(char),impo_adresse(char)
+
+produits organisé en rubrique et sous rubrique
+
+pro_rubrique_id (int),rub_nom(char),rub_id(int) pro_sous_rubrique_id (int),sous_nom(char)
+
+produit = description, description tres courte, réf, prix, et photo
+
+pro_desc (char),pro_mini_desc(char),pro_id(int),pro_prix(decimal 2,2),pro_photo(char)
+
+l'équipe met a jour le stock, valide les nouveaux produits, et desac les ancens produits et gère
+l'arborescence rubrique sous rubrique
+
+pro_stock(int),pro_valide(boolean),
+
+prix = HT. Coef particulier/professionnel.
+
+tot_coef(decimal 2,2)
+
+pour chaque client pro est attribué un commercial
+
+cli_pro(id),pro_nom(char), cli_commercial_pro_id(int),
+
+client particulier = commercial particulié
+
+cli_particulier_id(int), cli_commercial_particulier_id(int)
+
+reduc supplementaire sur le total
+
+tot_prix(decimal 2,2), tot_reduc(decimal 2,2)
+
+commande : adresse de livraison et adresse de facturation.
+
+com_adresse_livraison(char), com_adresse_facturation(char)
+
+bon de livraison et facture peuvent être éditées
+
+
+clients particuliers = paiement a la commande obligatoire
+
+tot_paiement_differe (boolean)
+
+clients pro = paiement différé
+
+
+chaque client a une réf
+
+cli_ref(char)
+
+commandes et doc conservés 3 ans
+
+com_plus_de_3ans (boolean)
+</body>
+</html>
