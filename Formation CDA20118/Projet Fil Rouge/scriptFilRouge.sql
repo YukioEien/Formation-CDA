@@ -1,4 +1,6 @@
-CREATE DATABASE IF NOT EXISTS filrouge;
+DROP DATABASE if exists filrouge;
+CREATE DATABASE filrouge;
+USE filrouge;
 
 CREATE TABLE Produit(
    pro_id INT,
@@ -138,7 +140,7 @@ CREATE TABLE commandeClient(
    FOREIGN KEY(com_id) REFERENCES Commande(com_id)
 );
 
-CREATE TABLE Ligne_LivraisonClient(
+CREATE TABLE ligne_livraisonClient(
    pro_id INT,
    liv_id INT,
    quantite_livre_client INT,
