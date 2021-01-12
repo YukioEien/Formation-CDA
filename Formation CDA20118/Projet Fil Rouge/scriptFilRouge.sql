@@ -3,7 +3,7 @@ CREATE DATABASE filrouge;
 USE filrouge;
 
 CREATE TABLE Produit(
-   pro_id INT,
+   pro_id INT AUTO_INCREMENT,
    pro_prix DECIMAL(15,2),
    pro_rubrique_id INT,
    pro_sous_rubrique_id INT,
