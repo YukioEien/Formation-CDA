@@ -15,49 +15,50 @@ CREATE TABLE Produit(
 );
 
 CREATE TABLE Constructeur(
-   cons_pro_id INT,
+   cons_pro_id INT AUTO_INCREMENT,
    cons_nom VARCHAR(50),
    cons_adresse VARCHAR(60),
    PRIMARY KEY(cons_pro_id)
 );
 
 CREATE TABLE Rubrique(
-   pro_id INT,
+   pro_id INT AUTO_INCREMENT,
    rub_nom VARCHAR(50),
    PRIMARY KEY(pro_id),
    FOREIGN KEY(pro_id) REFERENCES Produit(pro_id)
 );
 
 CREATE TABLE Sous_rubrique(
-   pro_id INT,
+   pro_id INT AUTO_INCREMENT,
    sous_nom VARCHAR(50),
    PRIMARY KEY(pro_id),
    FOREIGN KEY(pro_id) REFERENCES Produit(pro_id)
 );
 
 CREATE TABLE Client(
+   cli_id INT AUTO_INCREMENT,
    cli_nom VARCHAR(50),
    cli_prenom VARCHAR(50),
    cli_adresse VARCHAR(50),
    cli_telephone VARCHAR(10),
    cli_pays VARCHAR(50),
    cli_pro BOOLEAN,
-   PRIMARY KEY(cli_nom)
+   PRIMARY KEY(cli_id)
 );
 
 CREATE TABLE Commande(
-   com_id INT,
+   com_id INT AUTO_INCREMENT,
    com_adresse_livraison VARCHAR(50),
    com_adresse_facturation VARCHAR(50),
    com_plus_de_3ans BOOLEAN,
-   cli_nom VARCHAR(50) NOT NULL,
+   cli_id INT,
    PRIMARY KEY(com_id),
-   UNIQUE(cli_nom),
-   FOREIGN KEY(cli_nom) REFERENCES Client(cli_nom)
+   UNIQUE(cli_id),
+   FOREIGN KEY(cli_id) REFERENCES Client(cli_id)
 );
 
 CREATE TABLE stock(
-   stock_id INT,
+   stock_id INT AUTO_INCREMENT,
    stock_min INT,
    stock_max INT,
    stock_reel INT,
@@ -65,17 +66,17 @@ CREATE TABLE stock(
 );
 
 CREATE TABLE Facture(
-   fac_id INT,
+   fac_id INT AUTO_INCREMENT,
    fac_total DECIMAL(15,2),
-   fac_coef DECIMAL(2,2),
+   fac_coef DECIMAL(15,2),
    fac_differe BOOLEAN,
-   cli_nom VARCHAR(50) NOT NULL,
+   cli_id INT,
    PRIMARY KEY(fac_id),
-   FOREIGN KEY(cli_nom) REFERENCES Client(cli_nom)
+   FOREIGN KEY(cli_id) REFERENCES Client(cli_id)
 );
 
 CREATE TABLE LivraisonClient(
-   liv_id INT,
+   liv_id INT AUTO_INCREMENT,
    liv_date DATETIME,
    liv_total DECIMAL(15,2),
    fac_id INT NOT NULL,
@@ -86,7 +87,7 @@ CREATE TABLE LivraisonClient(
 );
 
 CREATE TABLE Commande_fournisseur(
-   com_fournisseur_num INT,
+   com_fournisseur_num INT AUTO_INCREMENT,
    com_importateur_date DATETIME,
    cons_pro_id INT NOT NULL,
    PRIMARY KEY(com_fournisseur_num),
@@ -94,14 +95,14 @@ CREATE TABLE Commande_fournisseur(
 );
 
 CREATE TABLE Paiement_Fournisseur(
-   paie_id INT,
+   paie_id INT AUTO_INCREMENT,
    paie_date DATE,
    paie_total DECIMAL(15,2),
    PRIMARY KEY(paie_id)
 );
 
 CREATE TABLE Facture_achat(
-   fac_id INT,
+   fac_id INT AUTO_INCREMENT,
    fac_Date DATETIME,
    fac_montant DECIMAL(15,2),
    fac_coef DECIMAL(2,2),
@@ -113,7 +114,7 @@ CREATE TABLE Facture_achat(
 );
 
 CREATE TABLE Livraison_fournisseur(
-   four_id INT,
+   four_id INT AUTO_INCREMENT,
    four_nom VARCHAR(50),
    four_adresse VARCHAR(100),
    fac_id INT NOT NULL,
@@ -124,7 +125,7 @@ CREATE TABLE Livraison_fournisseur(
 );
 
 CREATE TABLE compte(
-   pro_id INT,
+   pro_id INT AUTO_INCREMENT,
    stock_id INT,
    PRIMARY KEY(pro_id, stock_id),
    FOREIGN KEY(pro_id) REFERENCES Produit(pro_id),
